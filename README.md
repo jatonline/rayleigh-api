@@ -5,7 +5,7 @@ A minimal wrapper for getting data from the rayleighconnect™ API into Pandas.
 ## Usage
 
 ```python
-from rayleigh import client, decode_credentials
+from rayleigh import Client, decode_credentials
 
 client_id, access_token = decode_credentials("tdnTD35 ... bF46F60=")
 client = Client(client_id, access_token)
