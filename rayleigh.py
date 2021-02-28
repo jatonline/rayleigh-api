@@ -463,14 +463,14 @@ class SensorList(list):
 
         # We create a DataFrame from each key-value pair of the inner dictionary
         # (taking care to allocate multiple columns if required) and then join
-        # those together in a long format Series, indexed by device, sensor and
-        # datetime.
+        # those together in a long-form DataFrame, with columns for device,
+        # sensor and datetime.
 
         data = (
             (
                 pd.DataFrame(sensor_data, columns=get_column_headers(sensor_id, sensor_data))
-                .melt(id_vars="datetime", var_name="sensor")
                 .assign(device=device_id)
+                .melt(id_vars=["datetime", "device"], var_name="sensor")
             )
             for device_id, sensor_id, sensor_data in loop_through_sensors(data)
         )
@@ -486,11 +486,7 @@ class SensorList(list):
         # Datetime index is provided milliseconds
         data["datetime"] = pd.to_datetime(data["datetime"], unit="ms")
 
-        # Index by device, sensor and then by datetime
-        data = data.set_index(["device", "sensor", "datetime"]).sort_index()
-
-        # Select remaining column to produce a Series
-        return data["value"]
+        return data
 
     def __repr__(self):
         id_list = ', '.join(f"{sensor.device.id}:({sensor.id})" for sensor in self)
