@@ -29,22 +29,21 @@ data
 ```
 
 ```
-device                    sensor    datetime           
-300000000000001@rayleigh  e1.kwh    2021-01-01 00:01:00   10.0
-                                    2021-01-01 00:02:00   11.0
-                                    2021-01-01 00:03:00   12.0
-                                    2021-01-01 00:04:00   13.0
-                                    2021-01-01 00:05:00   14.0
-                                                          ... 
-300000000000003@rayleigh  e1.i3p_3  2021-01-31 23:55:00    2.0
-                                    2021-01-31 23:56:00    2.5
-                                    2021-01-31 23:57:00    2.0
-                                    2021-01-31 23:58:00    1.5
-                                    2021-01-31 23:59:00    2.0
-Name: value, Length: 178560, dtype: float64
+        datetime             device                    sensor    value
+     0  2021-01-01 00:01:00  300000000000001@rayleigh  e1.kwh     10.0
+     1  2021-01-01 00:02:00  300000000000001@rayleigh  e1.kwh     11.0
+     2  2021-01-01 00:03:00  300000000000001@rayleigh  e1.kwh     12.0
+     3  2021-01-01 00:04:00  300000000000001@rayleigh  e1.kwh     13.0
+     4  2021-01-01 00:05:00  300000000000001@rayleigh  e1.kwh     14.0
+ ...     ...                  ...                       ...        ... 
+178555  2021-01-31 23:55:00  300000000000003@rayleigh  e1.i3p_3    2.0
+178556  2021-01-31 23:56:00  300000000000003@rayleigh  e1.i3p_3    2.5
+178557  2021-01-31 23:57:00  300000000000003@rayleigh  e1.i3p_3    2.0
+178558  2021-01-31 23:58:00  300000000000003@rayleigh  e1.i3p_3    1.5
+178559  2021-01-31 23:59:00  300000000000003@rayleigh  e1.i3p_3    2.0
 ```
 
 ## Notes
 
-This library are not associated with Raleigh Instruments or UXEON.  
+This library is not associated with Raleigh Instruments or UXEON.  
 rayleighconnect is a trademark of Rayleigh Instruments Limited.
